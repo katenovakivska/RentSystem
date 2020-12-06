@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>Rent</title>
+    <style>
+        body {
+            background-image: url(https://avatanplus.com/files/resources/original/59d8f9f5ea9f115ef79068c9.jpg);
+            /*background-image: url(https://st2.depositphotos.com/2746515/5321/v/950/depositphotos_53217273-stock-illustration-home-background.jpg);*/
+            /*background-color: black;*/
+            /*background-size:35%;*/
+        }
+
+        h2 {
+            font-family: 'PT Sans Caption', sans-serif;
+            color: #421200;
+        }
+
+        h1 {
+            font-family: "Times New Roman";
+            font-size: 50px;
+            letter-spacing: 7px;
+            padding: 0px 0 0px;
+            position: relative;
+            text-transform: uppercase;
+            color: dimgray;
+            /*line-height:2;*/
+            text-align: center;
+        }
+
+        h2 {
+            font-family: "Times New Roman";
+            font-size: 22px;
+            letter-spacing: 7px;
+            padding: 0px 0 0px;
+            position: relative;
+            text-transform: uppercase;
+            color: dimgray;
+            /*line-height:2;*/
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        p {
+            font-family: "Times New Roman";
+            font-size: 18px;
+            /*letter-spacing: 7px;*/
+            padding: 0px 0 0px;
+            position: relative;
+            color: dimgray;
+        }
+
+        .p1 {
+            font-family: "Times New Roman";
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: dimgray;
+        }
+
+        .menu-main {
+            margin: auto;
+            margin-top: 0;
+            list-style: none;
+            padding: 0 30px;
+            font-size: 18px;
+            text-align: center;
+            position: relative;
+            background-color: #E6ECEB;
+            width: 75%;
+        }
+
+            .menu-main:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 20px;
+                left: 0;
+                bottom: -20px;
+                background: radial-gradient(white 0%, white 70%, rgba(255,255,255,0) 70%, rgba(255,255,255,0) 100%) 0 -10px;
+                background-size: 20px 20px;
+                background-repeat: repeat-x;
+            }
+
+            .menu-main li {
+                display: inline-block;
+            }
+
+            .menu-main a {
+                text-decoration: none;
+                display: inline-block;
+                margin: 0 15px;
+                padding: 10px 30px;
+                font-family: 'PT Sans Caption', sans-serif;
+                color: #777777;
+                transition: .3s linear;
+                position: relative;
+            }
+
+                .menu-main a:before,
+                .menu-main a:after {
+                    content: "";
+                    position: absolute;
+                    top: calc(50% - 3px);
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: #ECA815;
+                    opacity: 0;
+                    transition: .5s ease-in-out;
+                }
+
+                .menu-main a:before {
+                    left: 5px;
+                }
+
+                .menu-main a:after {
+                    right: 5px;
+                }
+
+                .menu-main a.current:before,
+                .menu-main a.current:after,
+                .menu-main a:hover:before,
+                .menu-main a:hover:after {
+                    opacity: 1;
+                }
+
+                .menu-main a.current,
+                .menu-main a:hover {
+                    color: #ECA815;
+                }
+
+
+
+        .window {
+            background-color: #E6ECEB;
+            margin: auto;
+            width: 40%;
+            /*background-color: lightblue;*/
+            box-shadow: grey 5px 5px;
+            border-radius: 10px;
+            height: 300px;
+            padding-top: 10px;
+        }
+
+        .window-entered {
+            background-color: #E6ECEB;
+            margin: auto;
+            width: 30%;
+            /*background-color: lightblue;*/
+            box-shadow: grey 5px 5px;
+            border-radius: 10px;
+            height: 100px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .window-registrating {
+            background-color: #E6ECEB;
+            margin: auto;
+            width: 35%;
+            /*background-color: lightblue;*/
+            box-shadow: grey 5px 5px;
+            border-radius: 10px;
+            height: 580px;
+            padding-top: 10px;
+        }
+
+        .window-search {
+            background-color: #E6ECEB;
+            margin: auto;
+            width: 30%;
+            /*background-color: lightblue;*/
+            box-shadow: grey 5px 5px;
+            border-radius: 10px;
+            height: 250px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .window-show {
+            background-color: #E6ECEB;
+            margin: auto;
+            width: 50%;
+            /*background-color: lightblue;*/
+            box-shadow: grey 5px 5px;
+            border-radius: 10px;
+            height: auto;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .semiopacity {
+            background: white; /* Цвет фона */
+            padding: 1px; /* Поля вокруг текста */
+            opacity: 0.8; /* Полупрозрачный фон */
+            filter: alpha(Opacity=80); /* Прозрачность в IE */
+            color: dimgrey; /* Цвет текста */
+        }
+
+        input[type=text], select {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-left: 35px;
+        }
+
+        input[type=password], select {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-left: 35px;
+        }
+
+        input[type=number], select {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-left: 35px;
+        }
+
+        /*input[type=radio], select {*/
+        /*width: 20%;*/
+        /*padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-left: 35px;
+        }*/
+
+        input[type=submit] {
+            width: 50%;
+            background-color: dimgray;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        input[type=submit], rent {
+            width: auto;
+            background-color: dimgray;
+            color: white;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            height:20px;
+        }
+
+            input[type=submit]:hover {
+                background-color: #ECA815;
+            }
+
+        input[type=text]:focus {
+            border: 3px solid darkorange;
+        }
+
+        input[type=password]:focus {
+            border: 3px solid darkorange;
+        }
+
+        input[type=number]:focus {
+            border: 3px solid darkorange;
+        }
+
+        input[name=Login], select {
+            width: 50%;
+        }
+
+        input[name=Password], select {
+            width: 50%;
+        }
+
+        .add-form {
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        button {
+            width: 50px;
+            height: 20px;
+            border-radius: 7px;
+            background-color: chocolate;
+            color: azure;
+            font-family: 'PT Sans Caption', sans-serif;
+            font-size: 12px;
+            text-align: center;
+            box-shadow: 0 2px 2px 0 #757575,0 3px 1px -2px #757575,0 1px 5px 0 #757575;
+        }
+
+        td {
+            font-family: "Times New Roman";
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: dimgray;
+        }
+
+        .find {
+            padding-left: 130px;
+            width: 40px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: darkorange;
+            color: azure;
+            font-family: 'PT Sans Caption', sans-serif;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0 2px 2px 0 #757575,0 3px 1px -2px #757575,0 1px 5px 0 #757575;
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="semiopacity">
+        <h1>RENT SYSTEM</h1>
+    </div>
+    <ul class="menu-main">
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Rent", "Index", "Rent")</li>
+        <li>@Html.ActionLink("Add", "Adding", "AddAppartment")</li>
+        <li>@Html.ActionLink("Sign in", "Entering", "Enter")</li>
+        <li>@Html.ActionLink("Search", "Searching", "Search")</li>
+        <li>@Html.ActionLink("Sign up", "SignUp", "Registration")</li>
+    </ul>
+   
+        
+            @RenderBody()
+      
+    
+</body>
+</html>

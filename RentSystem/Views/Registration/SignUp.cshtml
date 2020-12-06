@@ -1,0 +1,47 @@
+﻿@model RentSystem.Models.User
+
+@{
+    Layout = "/views/shared/_layout.cshtml";
+}
+
+<<br>
+<div class="window-registrating">
+    @using (Html.BeginForm("SignUp", "Registration", FormMethod.Post))
+    {
+        <form @*action="/Registration/registered"*@ method="post">
+            <div style="padding-left:180px;padding-top:20px">
+                <div class="p1">
+                    Name
+                </div>
+            </div>
+            <div style="padding-left:95px">
+                <input type="text" name="Name">
+            </div>
+            <div style="padding-left:175px;padding-top:20px">
+                <div class="p1">
+                    Surname
+                </div>
+            </div>
+            <div style="padding-left:95px">
+                <input type="text" name="Surname">
+            </div>
+            <div style="padding-left:185px;padding-top:20px">
+                <div class="p1">
+                    Login
+                </div>
+            </div>
+            <div style="padding-left:95px">
+                <input type="text" name="Login">
+            </div>
+            <div style="padding-left:172px;padding-top:20px">
+                <div class="p1">
+                    Password
+                </div>
+            </div>
+            <div style="padding-left:95px">
+                <input type="password" name="Password">
+            </div><br>
+            <div style="padding-left:160px"><input value="Sign up" type="submit"></div>
+        </form>
+    }
+</div>

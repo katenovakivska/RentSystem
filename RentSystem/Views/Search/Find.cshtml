@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Find";
+    Layout = "/views/shared/_layout.cshtml";
+}
+<div class="window-show">
+    <h2>Appartments</h2>
+    <div>
+        <table>
+            @{
+                foreach (var appartment in ViewBag.Appartments)
+
+                {
+                    if (appartment.Status != "rented" && appartment.Status != "bought")
+                    {
+                        <tr>
+                            <td>@appartment.Building_Id </td>
+                            <td> @appartment.Town </td>
+                            <td>@appartment.Address</td>
+                            <td>@appartment.Number_Of_Rooms</td>
+                            <td>@appartment.Monthly_Price</td>
+                            <td>@appartment.Description</td>
+                            <td>@appartment.Landlord_Id</td>
+                            <td>@appartment.Status</td>
+                        </tr>
+
+                    }
+                    //else if (ViewBag.Appartments.Empty)
+                    //{
+
+                    //}
+                }
+            }
+        </table>
+
+    </div>
+    </div>

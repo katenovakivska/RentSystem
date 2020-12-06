@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "/views/shared/_layout.cshtml";
+}
+
+<h3 align="center">Appartment details</h3>
+@{
+    <hr />
+    <table>
+        <tr>
+            <td>Address:</td>
+            <td>@ViewBag.Appartment.Address</td>
+            <td rowspan="6">
+                <div class="window" style="width: auto; height:auto; background-color: lightyellow; position: absolute; padding-top: 10px;">
+                    <h3>Rent this appartment!</h3>
+                    <form method="post" action="/Rent/Rented">
+                        <input type="hidden" value="@ViewBag.Appartment.Building_Id" name="Building_Id" />
+                        <input type="hidden" value="@ViewBag.Appartment.Monthly_Price" name="monthlyPrice" />
+                        Rent for <input type="number" name="NumOfMonths" onchange="count()" style="height:auto; padding: 3px;" /> month
+                        <br />
+                        Starting from <input type="date" name="Start_Date" style="margin: 5px;" />
+                        <br />
+                        Price: <input disabled name="CountedPrice" style="background-color: transparent">
+                        <input name="Price" type="hidden">
+                        <script>
+                            function count() {
+                                this.document.getElementsByName("CountedPrice")[0].value =
+                                    this.document.getElementsByName("monthlyPrice")[0].value *
+                                    this.document.getElementsByName("NumOfMonths")[0].value;
+                                this.document.getElementsByName("Price")[0].value =
+                                    this.document.getElementsByName("CountedPrice")[0].value;
+                            }
+                        </script>
+                        <button onclick="this.form.submit()">Rent!</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Town:</td>
+            <td>@ViewBag.Appartment.Town</td>
+        </tr>
+        <tr>
+            <td>Rooms:</td>
+            <td>@ViewBag.Appartment.Number_Of_Rooms</td>
+        </tr>
+        <tr>
+            <td>Price (monthly):</td>
+            <td>@ViewBag.Appartment.Monthly_Price</td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>@ViewBag.Appartment.Description</td>
+        </tr>
+        <tr>
+            <td>Landlord info:</td>
+            <td>@ViewBag.Landlord.Surname @ViewBag.Landlord.Name</td>
+        </tr>
+    </table>
+}
+

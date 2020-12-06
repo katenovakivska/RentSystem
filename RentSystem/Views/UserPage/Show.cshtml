@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "/views/shared/_layout.cshtml";
+}
+<!DOCTYPE html>
+
+<h3>User Page</h3>
+<hr />
+@{
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>@ViewBag.User.Name</td>
+        </tr>
+        <tr>
+            <td>Surname:</td>
+            <td>@ViewBag.User.Surname</td>
+        </tr>
+        <tr>
+            <td>Login:</td>
+            <td>@ViewBag.User.Login</td>
+        </tr>
+    </table>
+    <hr />
+}
+@{ 
+    if (ViewBag.Appartments.Count != 0)
+    {
+        <h4>My appartments</h4>
+        <table>
+            <tr>
+                <td>Address</td>
+                <td>Town</td>
+                <td>Rooms</td>
+                <td>Price</td>
+                <td>Description</td>
+                <td>Status</td>
+                <td></td>
+            </tr>
+            @{
+                foreach (var appartment in ViewBag.Appartments)
+                {
+                        <tr>
+                            <td>@appartment.Address</td>
+                            <td>@appartment.Town</td>
+                            <td>@appartment.Number_Of_Rooms</td>
+                            <td>@appartment.Monthly_Price</td>
+                            <td>@appartment.Description</td>
+                            <td>@appartment.Status</td>
+                        </tr>
+                }
+            }
+
+        </table>
+                }
+}

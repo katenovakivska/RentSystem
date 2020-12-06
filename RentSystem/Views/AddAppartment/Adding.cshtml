@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = "/views/shared/_layout.cshtml";
+}
+
+<br>
+<div class="window-registrating">
+    <form action="/AddAppartment/Added" method="post">
+        <div style="padding-left:180px;padding-top:20px">
+            <div class="p1">
+                Town:
+            </div>
+            </div>
+        <div style="padding-left:95px">
+            <input type="text" name="Town">
+            </div>
+        <div style="padding-left:175px;padding-top:20px">
+            <div class="p1">
+                Address:
+            </div></div>
+        <div style="padding-left:95px">
+            <input type="text" name="Address">
+            </div>
+            <div style="padding-left:135px;padding-top:20px">
+                <div class="p1">
+                    Number of rooms:
+                </div>
+            </div>
+        <div style="padding-left:95px">
+            <input type="number" name="Number_Of_Rooms">
+            </div>
+            <div style="padding-left:150px;padding-top:20px">
+                <div class="p1">
+                    Monthly price:
+                </div>
+            </div>
+        <div style="padding-left:95px">
+            <input type="number" name="Monthly_Price">
+            </div>
+            <div style="padding-left:160px;padding-top:20px">
+                <div class="p1">
+                    Description:
+                </div>
+            </div>
+        <div style="padding-left:95px">
+            <input type="text" name="Description">
+            </div>
+            <br>
+            <div style="padding-left:140px"><input value="Add appartment" type="submit"></div>
+</form>
+    </div>
+

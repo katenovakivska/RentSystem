@@ -1,0 +1,26 @@
+﻿@model RentSystem.Models.User
+@{
+    ViewBag.Title = "Entering";
+}
+
+<br>
+<div class="window">
+
+    @using (Html.BeginForm("Entering", "Enter", FormMethod.Post))
+    {
+        <form @*action="/Enter/Entered"*@ method="post">
+
+            <div style="padding-left:210px;padding-top:20px"><div class="p1">Login</div></div><div style="padding-left:110px"><input type="text" name="Login"></div>
+            <div style="padding-left:195px;padding-top:20px">
+                <div class="p1">
+                    Password
+                </div>
+            </div>
+            <div style="padding-left:110px">
+                <input type="password" name="Password">
+            </div>
+
+            <br>
+            <div style="padding-left:175px"><input value="Enter" type="submit"></div>
+        </form>}
+</div>
